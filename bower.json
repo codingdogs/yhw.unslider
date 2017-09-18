@@ -1,0 +1,21 @@
+{
+  "name": "yhw.unslider",
+  "homepage": "https://github.com/codingdogs/yhw.unslider",
+  "authors": [
+    "严浩韦 <704175885@qq.com>"
+  ],
+  "description": "unslider轮播插件扩展 添加不定宽度轮播，具体用法稍后详解",
+  "main": "unslider.js",
+  "keywords": [
+    "yhw",
+    "yhw.unslider"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
