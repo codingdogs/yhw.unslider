@@ -2,7 +2,7 @@
  * @Author: yanhaowei
  * @Date:   2017-09-18T15:29:03+08:00
  * @Last modified by:   yanhaowei
- * @Last modified time: 2017-09-18T15:29:05+08:00
+ * @Last modified time: 2017-09-19T15:42:45+08:00
  */
 
 
@@ -192,7 +192,7 @@
                  self.$container.css('width', widths).addClass(self.prefix + 'carousel');
                  // self.$slides.css(prop, (100 / self.total) + '%');
              }else if(self.options.girdNum){
- 				console.log(self.$slides.length)
+ 			// 	console.log(self.$slides.length)
  				if(self.options.animation !== 'fade') {
      				var prop = 'width';
 
@@ -358,37 +358,30 @@
  		//  Infinite scrolling is a massive pain in the arse
  		//  so we need to create a whole bloody function to set
  		//  it up. Argh.
- 		self.initInfinite = function() {
- 			var pos = ['first', 'last'];
- 			if(self.options.girdNum){
- 				pos=[];
- 				for(var i=0;i<self.options.girdNum;i++){
- 					pos.push(i);
- 					pos.push(self.options.girdNum-i-1);
- 				}
- 			}
- 			$.each(pos, function(index, item) {
- 				self.$slides.push.apply(
- 					self.$slides,
+        self.initInfinite = function() {
+			var pos = ['first', 'last'];
 
- 					//  Exclude all cloned slides and call .first() or .last()
- 					//  depending on what `item` is.
- 					self.$slides.filter(':not(".' + self._ + '-clone")').eq(item)
+			$.each(pos, function(index, item) {
+				self.$slides.push.apply(
+					self.$slides,
 
- 					//  Make a copy of it and identify it as a clone
- 					.clone().addClass(self._ + '-clone')
+					//  Exclude all cloned slides and call .first() or .last()
+					//  depending on what `item` is.
+					self.$slides.filter(':not(".' + self._ + '-clone")')[item]()
 
- 					//  Either insert before or after depending on whether we're
- 					//  the first or last clone
- 					['insert' + (index === 0 ? 'After' : 'Before')](
- 						//  Return the other element in the position array
- 						//  if item = first, return "last"
- 						self.$slides[pos[~~!index]]()
- 					)
- 				);
- 			});
- 		};
+					//  Make a copy of it and identify it as a clone
+					.clone().addClass(self._ + '-clone')
 
+					//  Either insert before or after depending on whether we're
+					//  the first or last clone
+					['insert' + (index === 0 ? 'After' : 'Before')](
+						//  Return the other element in the position array
+						//  if item = first, return "last"
+						self.$slides[pos[~~!index]]()
+					)
+				);
+			});
+		};
  		//  Remove any trace of arrows
  		//  Loop our array of arrows and use jQuery to remove
  		//  It'll unbind any event handlers for us
@@ -578,7 +571,7 @@
  			//  Manually create it here
  			if(self.options.autoWidth){
                  var widths=0;
-                 console.log(self.$slides)
+                //  console.log(self.$slides)
                  self.$slides.each(function(index,obj){
                      if(index<to){
                          widths+=$(obj).outerWidth();
