@@ -1,0 +1,19 @@
+{
+  "name": "yhw.unslider",
+  "version": "1.0.0",
+  "description": "unslider轮播插件扩展 添加不定宽度轮播，具体用法稍后详解",
+  "main": "unslider.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingdogs/yhw.unslider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codingdogs/yhw.unslider/issues"
+  },
+  "homepage": "https://github.com/codingdogs/yhw.unslider#readme"
+}
